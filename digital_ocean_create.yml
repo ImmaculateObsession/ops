@@ -1,0 +1,18 @@
+---
+- hosts: local
+  connection: local
+  tasks:
+  - digital_ocean: >
+      state=present
+      command=droplet
+      name=imob3
+      ssh_key_ids=26930
+      image_id=350076
+      size_id=66
+      region_id=3
+      wait_timeout=500
+    register: new_droplet
+  - debug: msg="ID is {{ new_droplet.droplet.id }}"
+  - debug: msg="IP is {{ new_droplet.droplet.ip_address }}"
+
+

@@ -1,0 +1,6 @@
+---
+- hosts: nest
+  user: angel
+  tasks:
+  - name: ensure docker is running
+    service: name=docker state=started
